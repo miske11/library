@@ -11,10 +11,10 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
  
-addBookToLibrary(new Book("1984", "George Orwell", 328, true));
-addBookToLibrary(new Book("To Kill a Mockingbird", "Harper Lee", 281, false));
-addBookToLibrary(new Book("The Great Gatsby", "F. Scott Fitzgerald", 180, true));
-addBookToLibrary(new Book("Moby Dick", "Herman Melville", 635, false));
+// addBookToLibrary(new Book("1984", "George Orwell", 328, true));
+// addBookToLibrary(new Book("To Kill a Mockingbird", "Harper Lee", 281, false));
+// addBookToLibrary(new Book("The Great Gatsby", "F. Scott Fitzgerald", 180, true));
+// addBookToLibrary(new Book("Moby Dick", "Herman Melville", 635, false));
 
 function displayBooks() {
     let id = 0;
@@ -26,7 +26,7 @@ function displayBooks() {
     
     for (const book of myLibrary) {
         const row = document.createElement('tr');
-        row.setAttribute("class", `row${id++}`);
+        row.setAttribute("class", `row${id}`);
 
         const title = document.createElement('td');
         title.textContent = book.title;
@@ -52,7 +52,7 @@ function displayBooks() {
 
         delBtn.addEventListener('click', () =>  {
             table.removeChild(row);
-            myLibrary.splice(id - 1, 1);
+            myLibrary.splice(id, 1);
         })
 
         const readBtnCell = document.createElement('td');
