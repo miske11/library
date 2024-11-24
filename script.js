@@ -17,6 +17,7 @@ addBookToLibrary(new Book("The Great Gatsby", "F. Scott Fitzgerald", 180, true))
 addBookToLibrary(new Book("Moby Dick", "Herman Melville", 635, false));
 
 function displayBooks() {
+    let id = 0;
     const table = document.getElementById('table-body');
 
     while (table.firstChild) {
@@ -25,6 +26,7 @@ function displayBooks() {
     
     for (const book of myLibrary) {
         const row = document.createElement('tr');
+        row.setAttribute("class", `row${id++}`);
 
         const title = document.createElement('td');
         title.textContent = book.title;
@@ -42,9 +44,21 @@ function displayBooks() {
         read.textContent = book.isRead ? 'read' : 'not read';
         row.appendChild(read);
 
+        const delBtnCell = document.createElement('td');
+        const delBtn = document.createElement('button');
+        delBtn.textContent = 'Delete';
+        delBtnCell.appendChild(delBtn);
+        row.appendChild(delBtnCell)
+
+        delBtn.addEventListener('click', () =>  {
+            table.removeChild(row);
+            myLibrary.splice(id - 1, 1);
+        })
+        
+
         table.appendChild(row);
     }
-    console.log(table)
+
 }
 
 displayBooks();
@@ -53,7 +67,7 @@ const addBook = document.getElementById('add');
 
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("#add");
-const closeButton = document.querySelector("dialog button");
+const closeButton = document.querySelector(".closeBtn");
 const confirmButton = document.querySelector("#confirmBtn");
 
 showButton.addEventListener('click', () => {
