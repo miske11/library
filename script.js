@@ -54,6 +54,25 @@ function displayBooks() {
             table.removeChild(row);
             myLibrary.splice(id - 1, 1);
         })
+
+        const readBtnCell = document.createElement('td');
+        const readBtn = document.createElement('button');
+        readBtn.textContent = 'change status';
+        readBtnCell.appendChild(readBtn);
+        row.appendChild(readBtnCell);
+
+        readBtn.addEventListener('click', () => {
+            if (book.isRead) {
+                book.isRead = false;
+                read.textContent = 'not read';
+            }
+            else {
+                book.isRead = true;
+                read.textContent = 'read';
+            }
+                
+            
+        })
         
 
         table.appendChild(row);
