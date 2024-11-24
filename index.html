@@ -5,39 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <table>
-        <caption>Library</caption>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Pages</th>
-                <th>Status</th>
-            </tr>
-            <tbody id="table-body">
-                <output>
-                    
-                </output>
-            </tbody>
-        </thead>
-    </table>
-    <dialog>
-        <p>Enter information about the book.</p>
-        <form class="form">
-            <label for="title">Title</label>
-            <input type="text" name="title" class="input-title">
-            <label for="author">Author</label>
-            <input type="text" name="author" class="input-author">
-            <label for="pages">Pages</label>
-            <input type="text" name="pages" class="input-pages">
-            <input type="checkbox" name="read" class="read"/>
-            <label for="read">Have you read the book?</label>
-            <button id="confirmBtn" value="default">Confirm</button>
-        </form>
-        <button autofocus class="closeBtn">Close</button>
-    </dialog>
-    <button id="add">New Book</button>
+    <div class="container">
+        <table>
+            <caption>Library</caption>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Status</th>
+                </tr>
+                <tbody id="table-body">
+                    <output>
+        
+                    </output>
+                </tbody>
+            </thead>
+        </table>
+        <dialog>
+            <p>Enter information about the book.</p>
+            <form class="form">
+                <div class="form-el">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" class="input-title box">
+                </div>
+                <div class="form-el">
+                    <label for="author">Author</label>
+                    <input type="text" name="author" class="input-author box">
+                </div>
+                <div class="form-el">
+                    <label for="pages">Pages</label>
+                    <input type="text" name="pages" class="input-pages box">
+                </div>
+                <div>
+                    <input type="checkbox" name="read" class="read"/>
+                    <label for="read">Have you read the book?</label>
+                </div>
+            </form>
+            <div class="buttons">
+                <button id="confirmBtn" value="default">Confirm</button>
+                <button autofocus class="closeBtn">Close</button>
+            </div>
+        </dialog>
+        <button id="add">New Book</button>
+    </div>
 </body>
 </html>
