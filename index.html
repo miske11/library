@@ -17,10 +17,27 @@
                 <th>Status</th>
             </tr>
             <tbody id="table-body">
-
+                <output>
+                    
+                </output>
             </tbody>
         </thead>
     </table>
+    <dialog>
+        <p>Enter information about the book.</p>
+        <form>
+            <label for="title">Title</label>
+            <input type="text" name="title" class="input-title">
+            <label for="author">Author</label>
+            <input type="text" name="author" class="input-author">
+            <label for="pages">Pages</label>
+            <input type="text" name="pages" class="input-pages">
+            <input type="checkbox" name="read" class="read"/>
+            <label for="read">Have you read the book?</label>
+            <button id="confirmBtn" value="default">Confirm</button>
+        </form>
+        <button autofocus>Close</button>
+    </dialog>
     <button id="add">New Book</button>
 </body>
 </html>

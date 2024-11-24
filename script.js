@@ -18,6 +18,10 @@ addBookToLibrary(new Book("Moby Dick", "Herman Melville", 635, false));
 
 function displayBooks() {
     const table = document.getElementById('table-body');
+
+    while (table.firstChild) {
+        table.removeChild(table.lastChild);
+    }
     
     for (const book of myLibrary) {
         const row = document.createElement('tr');
@@ -44,3 +48,35 @@ function displayBooks() {
 }
 
 displayBooks();
+
+const addBook = document.getElementById('add');
+
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector("#add");
+const closeButton = document.querySelector("dialog button");
+const confirmButton = document.querySelector("#confirmBtn");
+
+showButton.addEventListener('click', () => {
+    dialog.showModal();
+})
+
+closeButton.addEventListener('click', () => {
+    dialog.close();
+})
+
+confirmButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    const title = document.querySelector('.input-title').value;
+    const author = document.querySelector('.input-author').value;
+    const pages = document.querySelector('.input-pages').value;
+    const read = document.querySelector('.read');
+    console.log(read);
+    addBookToLibrary(new Book(title, author, pages, isRead(read)));
+    displayBooks();
+    dialog.close();
+})
+
+function isRead(checkbox) {
+    return checkbox.checked ? true : false;
+}
+
